@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import Image from "next/image"; // Import Image
 
 export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
@@ -33,9 +34,9 @@ export default function Home() {
 
   const links = [
     { name: "Binance", url: "https://www.binance.com", logo: "/logos/binance.png" },
-    { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.png" },
+    { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.wepb" },
     { name: "YouTube", url: "https://www.youtube.com", logo: "/logos/youtube.png" },
-    { name: "ChatGPT", url: "https://chat.openai.com", logo: "/logos/chatgpt.png" },
+    { name: "ChatGPT", url: "https://chat.openai.com", logo: "/logos/chatgpt.webp" },
   ];
 
   return (
@@ -51,7 +52,10 @@ export default function Home() {
 
         {/* Open Graph */}
         <meta property="og:title" content="vgraphic hub" />
-        <meta property="og:description" content="Quick access dashboard with LTC price and favorite apps." />
+        <meta
+          property="og:description"
+          content="Quick access dashboard with LTC price and favorite apps."
+        />
         <meta property="og:image" content="/logos/share-preview.png" />
         <meta property="og:url" content="https://vgraphic.vercel.app" />
         <meta property="og:type" content="website" />
@@ -76,7 +80,9 @@ export default function Home() {
             <p style={styles.text}>
               <strong>LTC Price:</strong> ${parseFloat(ltcPrice).toFixed(2)}
             </p>
-            <p style={styles.timestamp}>Last updated: {lastUpdated?.toLocaleTimeString()}</p>
+            <p style={styles.timestamp}>
+              Last updated: {lastUpdated?.toLocaleTimeString()}
+            </p>
           </>
         )}
       </div>
@@ -87,7 +93,13 @@ export default function Home() {
           {links.map((link) => (
             <li key={link.name} style={styles.linkItem}>
               <a href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkRow}>
-                <img src={link.logo} alt={link.name} style={styles.logo} />
+                <Image
+                  src={link.logo}
+                  alt={link.name}
+                  width={24}
+                  height={24}
+                  style={{ marginRight: "0.5rem", borderRadius: "4px" }}
+                />
                 <span style={styles.linkText}>{link.name}</span>
               </a>
             </li>
@@ -99,16 +111,34 @@ export default function Home() {
         <h2 style={styles.subtitle}>🖥️ Apps</h2>
         <div style={styles.appButtons}>
           <a href="spotify://" style={styles.appButton}>
-            <img src="/logos/spotify.png" alt="Spotify" style={styles.logo} />
+            <Image
+              src="/logos/spotify.png"
+              alt="Spotify"
+              width={24}
+              height={24}
+              style={{ marginRight: "0.5rem", borderRadius: "4px" }}
+            />
             <span style={styles.linkText}>Open Spotify</span>
           </a>
           <a href={discordUrl} style={styles.appButton}>
-            <img src="/logos/discord.png" alt="Discord" style={styles.logo} />
+            <Image
+              src="/logos/discord.png"
+              alt="Discord"
+              width={24}
+              height={24}
+              style={{ marginRight: "0.5rem", borderRadius: "4px" }}
+            />
             <span style={styles.linkText}>Open Discord</span>
           </a>
           {isMobile && (
             <a href="tiktok://" style={styles.appButton}>
-              <img src="/logos/tiktok.png" alt="TikTok" style={styles.logo} />
+              <Image
+                src="/logos/tiktok.wepb"
+                alt="TikTok"
+                width={24}
+                height={24}
+                style={{ marginRight: "0.5rem", borderRadius: "4px" }}
+              />
               <span style={styles.linkText}>Open TikTok</span>
             </a>
           )}
