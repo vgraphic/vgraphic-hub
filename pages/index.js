@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
@@ -27,11 +28,7 @@ export default function Home() {
   useEffect(() => {
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     setIsMobile(isMobileDevice);
-    if (isMobileDevice) {
-      setDiscordUrl("https://discord.com/app");
-    } else {
-      setDiscordUrl("discord://");
-    }
+    setDiscordUrl(isMobileDevice ? "https://discord.com/app" : "discord://");
   }, []);
 
   const links = [
@@ -43,6 +40,32 @@ export default function Home() {
 
   return (
     <div style={styles.container}>
+      <Head>
+        <title>vgraphic hub – Quick Access & LTC Tracker</title>
+        <meta
+          name="description"
+          content="Quick links to your favorite apps, live LTC price updates, and mobile app launcher."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="vgraphic hub" />
+        <meta property="og:description" content="Quick access dashboard with LTC price and favorite apps." />
+        <meta property="og:image" content="/logos/share-preview.png" />
+        <meta property="og:url" content="https://vgraphic.vercel.app" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="vgraphic hub" />
+        <meta name="twitter:description" content="Quick links and real-time Litecoin price." />
+        <meta name="twitter:image" content="/logos/share-preview.png" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <h1 style={styles.title}>vgraphic hub</h1>
 
       <div style={styles.card}>
@@ -53,9 +76,7 @@ export default function Home() {
             <p style={styles.text}>
               <strong>LTC Price:</strong> ${parseFloat(ltcPrice).toFixed(2)}
             </p>
-            <p style={styles.timestamp}>
-              Last updated: {lastUpdated?.toLocaleTimeString()}
-            </p>
+            <p style={styles.timestamp}>Last updated: {lastUpdated?.toLocaleTimeString()}</p>
           </>
         )}
       </div>

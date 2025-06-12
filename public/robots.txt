@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vgraphic.vercel.app
+
+# Sitemaps
+Sitemap: https://vgraphic.vercel.app/sitemap.xml
