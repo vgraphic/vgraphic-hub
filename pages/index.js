@@ -4,6 +4,7 @@ export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [discordUrl, setDiscordUrl] = useState("discord://");
+  const [isMobile, setIsMobile] = useState(false);
 
   const fetchPrice = async () => {
     try {
@@ -24,12 +25,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Detect if user is on mobile
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      // Change Discord link to web URL on mobile devices
+    const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    setIsMobile(isMobileDevice);
+    if (isMobileDevice) {
       setDiscordUrl("https://discord.com/app");
-      // Or use your Discord invite link, e.g. "https://discord.gg/yourInviteCode"
     } else {
       setDiscordUrl("discord://");
     }
@@ -86,6 +85,12 @@ export default function Home() {
             <img src="/logos/discord.png" alt="Discord" style={styles.logo} />
             <span style={styles.linkText}>Open Discord</span>
           </a>
+          {isMobile && (
+            <a href="tiktok://" style={styles.appButton}>
+              <img src="/logos/tiktok.png" alt="TikTok" style={styles.logo} />
+              <span style={styles.linkText}>Open TikTok</span>
+            </a>
+          )}
         </div>
       </div>
     </div>
