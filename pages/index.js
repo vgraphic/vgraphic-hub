@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>🧠 VGraphic Hub</h1>
+      <h1 style={styles.title}>vgraphic hub</h1>
 
       <div style={styles.card}>
         {ltcPrice === null ? (
