@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Image from "next/image"; // Import Image
+import Image from "next/image";
 
 export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
@@ -43,30 +43,18 @@ export default function Home() {
     <div style={styles.container}>
       <Head>
         <title>vgraphic hub – Quick Access & LTC Tracker</title>
-        <meta
-          name="description"
-          content="Quick links to your favorite apps, live LTC price updates, and mobile app launcher."
-        />
+        <meta name="description" content="Quick links to your favorite apps, live LTC price updates, and mobile app launcher." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-
-        {/* Open Graph */}
         <meta property="og:title" content="vgraphic hub" />
-        <meta
-          property="og:description"
-          content="Quick access dashboard with LTC price and favorite apps."
-        />
+        <meta property="og:description" content="Quick access dashboard with LTC price and favorite apps." />
         <meta property="og:image" content="/logos/share-preview.png" />
         <meta property="og:url" content="https://vgraphic.vercel.app" />
         <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="vgraphic hub" />
         <meta name="twitter:description" content="Quick links and real-time Litecoin price." />
         <meta name="twitter:image" content="/logos/share-preview.png" />
-
-        {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -95,7 +83,7 @@ export default function Home() {
               <a href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkRow}>
                 <Image
                   src={link.logo}
-                  alt={link.name}
+                  alt=""
                   width={24}
                   height={24}
                   style={{ marginRight: "0.5rem", borderRadius: "4px" }}
@@ -113,7 +101,7 @@ export default function Home() {
           <a href="spotify://" style={styles.appButton}>
             <Image
               src="/logos/spotify.png"
-              alt="Spotify"
+              alt=""
               width={24}
               height={24}
               style={{ marginRight: "0.5rem", borderRadius: "4px" }}
@@ -123,7 +111,7 @@ export default function Home() {
           <a href={discordUrl} style={styles.appButton}>
             <Image
               src="/logos/discord.png"
-              alt="Discord"
+              alt=""
               width={24}
               height={24}
               style={{ marginRight: "0.5rem", borderRadius: "4px" }}
@@ -134,7 +122,7 @@ export default function Home() {
             <a href="tiktok://" style={styles.appButton}>
               <Image
                 src="/logos/tiktok.webp"
-                alt="TikTok"
+                alt=""
                 width={24}
                 height={24}
                 style={{ marginRight: "0.5rem", borderRadius: "4px" }}
@@ -212,12 +200,6 @@ const styles = {
     padding: "0.5rem",
     borderRadius: "8px",
     transition: "background 0.2s ease",
-  },
-  logo: {
-    width: "24px",
-    height: "24px",
-    marginRight: "0.5rem",
-    borderRadius: "4px",
   },
   linkText: {
     fontSize: "1rem",
