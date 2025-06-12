@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [discordUrl, setDiscordUrl] = useState("discord://");
 
   const fetchPrice = async () => {
     try {
@@ -20,6 +21,18 @@ export default function Home() {
     fetchPrice();
     const interval = setInterval(fetchPrice, 30000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Detect if user is on mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      // Change Discord link to web URL on mobile devices
+      setDiscordUrl("https://discord.com/app");
+      // Or use your Discord invite link, e.g. "https://discord.gg/yourInviteCode"
+    } else {
+      setDiscordUrl("discord://");
+    }
   }, []);
 
   const links = [
@@ -70,7 +83,7 @@ export default function Home() {
             <img src="/logos/spotify.png" alt="Spotify" style={styles.logo} />
             <span style={styles.linkText}>Open Spotify</span>
           </a>
-          <a href="discord://" style={styles.appButton}>
+          <a href={discordUrl} style={styles.appButton}>
             <img src="/logos/discord.png" alt="Discord" style={styles.logo} />
             <span style={styles.linkText}>Open Discord</span>
           </a>
