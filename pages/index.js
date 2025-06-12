@@ -37,7 +37,6 @@ export default function Home() {
 
   const links = [
     { name: "Binance", url: "https://www.binance.com", logo: "/logos/binance.png" },
-    { name: "HF", url: "https://hackforums.net/", logo: "/logos/hf.png" },
     { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.png" },
     { name: "YouTube", url: "https://www.youtube.com", logo: "/logos/youtube.png" },
     { name: "ChatGPT", url: "https://chat.openai.com", logo: "/logos/chatgpt.png" },
