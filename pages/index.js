@@ -34,7 +34,7 @@ export default function Home() {
 
   const links = [
     { name: "Binance", url: "https://www.binance.com", logo: "/logos/binance.png" },
-    { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.wepb" },
+    { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.webp" },
     { name: "YouTube", url: "https://www.youtube.com", logo: "/logos/youtube.png" },
     { name: "ChatGPT", url: "https://chat.openai.com", logo: "/logos/chatgpt.webp" },
   ];
@@ -133,7 +133,7 @@ export default function Home() {
           {isMobile && (
             <a href="tiktok://" style={styles.appButton}>
               <Image
-                src="/logos/tiktok.wepb"
+                src="/logos/tiktok.webp"
                 alt="TikTok"
                 width={24}
                 height={24}
