@@ -83,7 +83,10 @@ export default function Home() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: "#121212",
+    backgroundImage: "url('/backgrounds/pattern.webp')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     color: "#ffffff",
     fontFamily: "monospace",
     padding: "2rem",
@@ -96,7 +99,7 @@ const styles = {
     marginBottom: "2rem",
   },
   card: {
-    background: "#1e1e1e",
+    background: "rgba(30, 30, 30, 0.85)",
     borderRadius: "12px",
     padding: "1.5rem 2rem",
     boxShadow: "0 0 12px rgba(0,0,0,0.6)",
@@ -105,7 +108,7 @@ const styles = {
     marginBottom: "2rem",
   },
   linksCard: {
-    background: "#1e1e1e",
+    background: "rgba(30, 30, 30, 0.85)",
     borderRadius: "12px",
     padding: "1.5rem 2rem",
     boxShadow: "0 0 12px rgba(0,0,0,0.6)",
