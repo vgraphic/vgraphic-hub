@@ -4,7 +4,6 @@ export default function Home() {
   const [ltcPrice, setLtcPrice] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  // Fetch LTC price from your API route
   const fetchPrice = async () => {
     try {
       const res = await fetch("/api/crypto");
@@ -19,16 +18,16 @@ export default function Home() {
 
   useEffect(() => {
     fetchPrice();
-    const interval = setInterval(fetchPrice, 30000); // refresh every 30 seconds
+    const interval = setInterval(fetchPrice, 30000);
     return () => clearInterval(interval);
   }, []);
 
-  // Your quick links with logos
   const links = [
     { name: "Binance", url: "https://www.binance.com", logo: "/logos/binance.png" },
     { name: "HF", url: "https://hackforums.net/", logo: "/logos/hf.png" },
     { name: "SmartSchool", url: "https://deprinsdiest.smartschool.be/", logo: "/logos/smartschool.png" },
     { name: "YouTube", url: "https://www.youtube.com", logo: "/logos/youtube.png" },
+    { name: "ChatGPT", url: "https://chat.openai.com", logo: "/logos/chatgpt.png" },
   ];
 
   return (
@@ -62,6 +61,20 @@ export default function Home() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div style={styles.linksCard}>
+        <h2 style={styles.subtitle}>🖥️ Apps</h2>
+        <div style={styles.appButtons}>
+          <a href="spotify://" style={styles.appButton}>
+            <img src="/logos/spotify.png" alt="Spotify" style={styles.logo} />
+            <span style={styles.linkText}>Open Spotify</span>
+          </a>
+          <a href="discord://" style={styles.appButton}>
+            <img src="/logos/discord.png" alt="Discord" style={styles.logo} />
+            <span style={styles.linkText}>Open Discord</span>
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -98,6 +111,7 @@ const styles = {
     boxShadow: "0 0 12px rgba(0,0,0,0.6)",
     minWidth: "300px",
     textAlign: "center",
+    marginTop: "2rem",
   },
   subtitle: {
     fontSize: "1.5rem",
@@ -136,5 +150,22 @@ const styles = {
   },
   linkText: {
     fontSize: "1rem",
+  },
+  appButtons: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "1rem",
+    marginTop: "1rem",
+    flexWrap: "wrap",
+  },
+  appButton: {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "#333",
+    padding: "0.6rem 1rem",
+    borderRadius: "8px",
+    textDecoration: "none",
+    color: "#fff",
+    transition: "background 0.2s",
   },
 };
