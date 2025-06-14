@@ -55,7 +55,15 @@ export default function Home() {
         <meta name="twitter:title" content="vgraphic hub" />
         <meta name="twitter:description" content="Quick links and real-time Litecoin price." />
         <meta name="twitter:image" content="/logos/share-preview.png" />
+
+        {/* Favicon links */}
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png" />
+        <link rel="icon" href="/favicon-512.png" sizes="512x512" type="image/png" />
+
+        {/* Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#4fc3f7" />
       </Head>
 
       <h1 style={styles.title}>vgraphic hub</h1>
